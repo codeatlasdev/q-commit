@@ -1,0 +1,51 @@
+{
+  "name": "q-commit",
+  "displayName": "Q Commit",
+  "description": "Generate commit messages using Amazon Q CLI",
+  "version": "0.0.1",
+  "publisher": "codeatlasdev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeatlasdev/q-commit"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "q-commit.generate",
+        "title": "Generate Commit Message with Q",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "q-commit.generate",
+          "group": "navigation",
+          "when": "scmProvider == git"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js --production",
+    "watch": "node esbuild.js --watch",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.80.0",
+    "@typescript-eslint/eslint-plugin": "^6.x",
+    "@typescript-eslint/parser": "^6.x",
+    "esbuild": "^0.19.x",
+    "eslint": "^8.x",
+    "typescript": "^5.x"
+  }
+}
