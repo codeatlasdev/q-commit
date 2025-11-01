@@ -2,7 +2,7 @@
   "name": "q-commit",
   "displayName": "Q Commit",
   "description": "Generate commit messages using Amazon Q CLI",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "codeatlasdev",
   "license": "MIT",
   "icon": "icon.png",

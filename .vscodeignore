@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 .amazonq/**
+.github/**
 src/**
 .gitignore
 .eslintrc.json
