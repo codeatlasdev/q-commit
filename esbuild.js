@@ -17,10 +17,27 @@ async function main() {
     logLevel: 'silent',
     plugins: [
       {
-        name: 'watch-plugin',
+        name: 'build-logger',
         setup(build) {
+          build.onStart(() => {
+            console.log('[watch] build started');
+          });
+          
           build.onEnd(result => {
-            console.log(result.errors.length ? '❌ Build failed' : '✅ Build succeeded');
+            result.errors.forEach(error => {
+              console.error(`ERROR: ${error.text}`);
+              if (error.location) {
+                console.error(`  ${error.location.file}:${error.location.line}:${error.location.column}`);
+              }
+            });
+            
+            result.warnings.forEach(warning => {
+              console.warn(`WARNING: ${warning.text}`);
+            });
+            
+            if (result.errors.length === 0) {
+              console.log('[watch] build finished');
+            }
           });
         }
       }
@@ -28,6 +45,7 @@ async function main() {
   });
 
   if (watch) {
+    console.log('[watch] build started (initial)');
     await ctx.watch();
   } else {
     await ctx.rebuild();

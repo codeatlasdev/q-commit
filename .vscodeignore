@@ -1,9 +1,15 @@
 .vscode/**
 .vscode-test/**
+.amazonq/**
 src/**
-node_modules/**
 .gitignore
 .eslintrc.json
-tsconfig.json
 esbuild.js
+tsconfig.json
+**/*.map
+**/*.ts
+node_modules/**
+.git/**
 *.vsix
+npm-debug.log
+.DS_Store

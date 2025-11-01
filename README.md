@@ -23,20 +23,70 @@ Generate commit messages using Amazon Q CLI for your staged changes.
 
 ## Development
 
+### Setup
+
 ```bash
 npm install
-npm run watch  # Start watching for changes
-# Press F5 to launch extension development host
 ```
 
-## Build
+### Running the Extension
+
+1. Press `F5` to open a new VS Code window with the extension loaded
+2. Make changes to the code
+3. Press `Ctrl+R` (or `Cmd+R` on macOS) in the extension development window to reload
+
+### Watch Mode
+
+For continuous development with automatic rebuilds and type checking:
 
 ```bash
-npm run build
+npm run watch
+```
+
+This runs both esbuild and TypeScript compiler in watch mode simultaneously.
+
+### Building
+
+```bash
+npm run build       # Development build
+npm run package     # Production build with type checking
+```
+
+### Type Checking
+
+```bash
+npm run check-types
+```
+
+### Linting
+
+```bash
+npm run lint
 ```
 
 ## Tech Stack
 
 - TypeScript
-- ESBuild (fast bundling)
+- esbuild (fast bundling)
 - VS Code Extension API
+- npm-run-all (parallel watch tasks)
+
+## Project Structure
+
+```
+.
+├── src/
+│   ├── extension.ts    # Main extension entry point
+│   ├── prompts.ts      # Q CLI prompts
+│   └── utils.ts        # Helper functions
+├── dist/               # Compiled output
+├── .vscode/            # VS Code configuration
+│   ├── launch.json     # Debug configuration
+│   ├── tasks.json      # Build tasks
+│   └── settings.json   # Workspace settings
+└── esbuild.js          # Build configuration
+```
+
+## License
+
+MIT

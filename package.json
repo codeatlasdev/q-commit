@@ -4,14 +4,29 @@
   "description": "Generate commit messages using Amazon Q CLI",
   "version": "0.0.1",
   "publisher": "codeatlasdev",
+  "license": "MIT",
+  "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/codeatlasdev/q-commit"
   },
+  "bugs": {
+    "url": "https://github.com/codeatlasdev/q-commit/issues"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "amazon-q",
+    "ai",
+    "code-generation",
+    "scm"
+  ],
   "engines": {
     "vscode": "^1.80.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "SCM Providers"
+  ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
@@ -33,11 +48,17 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run build",
+    "vscode:prepublish": "npm run package",
     "build": "node esbuild.js --production",
-    "watch": "node esbuild.js --watch",
-    "compile": "tsc -p ./",
-    "lint": "eslint src --ext ts"
+    "package": "npm run check-types && npm run build",
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "dev": "npm run watch",
+    "lint": "eslint src --ext ts",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "@types/node": "^20.x",
@@ -46,6 +67,7 @@
     "@typescript-eslint/parser": "^6.x",
     "esbuild": "^0.19.x",
     "eslint": "^8.x",
+    "npm-run-all": "^4.1.5",
     "typescript": "^5.x"
   }
 }
