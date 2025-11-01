@@ -5,11 +5,11 @@ export function stripAnsi(str: string): string {
 export function extractCommitMessage(output: string): string | null {
   const cleanOutput = stripAnsi(output);
   const commitMatch = cleanOutput.match(/<commit>(.*?)<\/commit>/s);
-  
+
   if (commitMatch && commitMatch[1]) {
     return commitMatch[1].trim();
   }
-  
+
   // Fallback: extract after last tool output
   const lines = cleanOutput.split('\n');
   let lastToolIndex = -1;
@@ -20,7 +20,10 @@ export function extractCommitMessage(output: string): string | null {
       break;
     }
   }
-  
-  const message = lines.slice(lastToolIndex + 1).join('\n').trim();
+
+  const message = lines
+    .slice(lastToolIndex + 1)
+    .join('\n')
+    .trim();
   return message || null;
 }
