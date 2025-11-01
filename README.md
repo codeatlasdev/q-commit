@@ -1,5 +1,10 @@
 # Q Commit
 
+[![CI](https://github.com/codeatlasdev/q-commit/actions/workflows/ci.yml/badge.svg)](https://github.com/codeatlasdev/q-commit/actions/workflows/ci.yml)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/codeatlasdev.q-commit)](https://marketplace.visualstudio.com/items?itemName=codeatlasdev.q-commit)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/codeatlasdev.q-commit)](https://marketplace.visualstudio.com/items?itemName=codeatlasdev.q-commit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Generate commit messages using Amazon Q CLI for your staged changes.
 
 ## Features
@@ -13,6 +18,16 @@ Generate commit messages using Amazon Q CLI for your staged changes.
 
 - [Amazon Q CLI](https://aws.amazon.com/q/) installed and configured
 - Git repository
+
+## Installation
+
+Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=codeatlasdev.q-commit):
+
+```bash
+code --install-extension codeatlasdev.q-commit
+```
+
+Or search for "Q Commit" in the Extensions view (`Ctrl+Shift+X`).
 
 ## Usage
 
@@ -87,6 +102,10 @@ npm run lint
 └── esbuild.js          # Build configuration
 ```
 
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
 ## License
 
-MIT
+MIT © [CodeAtlas](https://github.com/codeatlasdev)
