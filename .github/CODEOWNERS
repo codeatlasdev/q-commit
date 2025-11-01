@@ -1,0 +1,12 @@
+# Code owners for Q Commit extension
+# These owners will be automatically requested for review when someone opens a pull request
+
+# Default owners for everything in the repo
+* @codeatlasdev
+
+# Specific owners for workflows and CI/CD
+/.github/ @codeatlasdev
+
+# Package and dependencies
+/package.json @codeatlasdev
+/package-lock.json @codeatlasdev
