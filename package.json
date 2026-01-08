@@ -1,8 +1,8 @@
 {
   "name": "q-commit",
   "displayName": "Q Commit",
-  "description": "Generate commit messages using Amazon Q CLI",
-  "version": "0.0.2",
+  "description": "Generate commit messages using Kiro CLI",
+  "version": "0.0.3",
   "publisher": "codeatlasdev",
   "license": "MIT",
   "icon": "icon.png",
@@ -37,6 +37,14 @@
         "icon": "$(sparkle)"
       }
     ],
+    "keybindings": [
+      {
+        "command": "q-commit.generate",
+        "key": "ctrl+shift+g",
+        "mac": "cmd+shift+g",
+        "when": "scmProvider == git"
+      }
+    ],
     "menus": {
       "scm/title": [
         {
@@ -45,6 +53,27 @@
           "when": "scmProvider == git"
         }
       ]
+    },
+    "configuration": {
+      "title": "Q Commit",
+      "properties": {
+        "q-commit.model": {
+          "type": "string",
+          "default": "claude-haiku-4.5",
+          "enum": ["claude-haiku-4.5", "claude-sonnet-4", "claude-sonnet-4.5"],
+          "description": "Model to use for generating commit messages"
+        },
+        "q-commit.showOutput": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show output panel when generating commit messages"
+        },
+        "q-commit.prompt": {
+          "type": "string",
+          "default": "Run git diff --cached and reply with ONLY a conventional commit message wrapped in <commit></commit> tags. Example: <commit>feat: add login</commit>",
+          "description": "Custom prompt for generating commit messages"
+        }
+      }
     }
   },
   "scripts": {
